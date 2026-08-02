@@ -6,7 +6,9 @@
 > Predicting circuit delay (ps) and power consumption (mW) from voltage, temperature, transistor sizing, and load capacitance — using SPICE-characterized data and Random Forest.
 
 ## Status
-🚧 Work in progress. Currently: setting up SPICE simulation pipeline (sky130 PDK).
+✅ Dataset generation complete: 500 samples from sky130 transistor-level SPICE simulation, sweeping Vdd (1.4-2.0V), temperature (-40 to 125°C), transistor sizing, and load capacitance.
+Delay and power extracted via automated waveform measurement.
+Next: exploratory data analysis and Random Forest training.
 
 ## Overview
 (coming soon — problem statement, approach)
