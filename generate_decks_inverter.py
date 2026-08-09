@@ -8,7 +8,7 @@ PDK_ROOT = os.environ.get("PDK_ROOT")
 if not PDK_ROOT:
     raise RuntimeError("PDK_ROOT is not set. Run: export PDK_ROOT=$HOME/pdk")
 
-MODEL_PATH = os.path.abspath("spice/models/inverter_models_tt.spice")
+MODEL_PATH = os.path.abspath("spice/models/sky130_tt_models.spice")
 TEMPLATE_PATH = "spice/templates/inverter_template.cir"
 DECK_DIR = "spice/generated"
 OUTPUT_DIR = "spice/outputs"

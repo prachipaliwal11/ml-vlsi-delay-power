@@ -6,9 +6,7 @@
 > Predicting circuit delay (ps) and power consumption (mW) from voltage, temperature, transistor sizing, and load capacitance — using SPICE-characterized data and Random Forest.
 
 ## Status
-✅ Dataset generation complete: 500 samples from sky130 transistor-level SPICE simulation, sweeping Vdd (1.4-2.0V), temperature (-40 to 125°C), transistor sizing, and load capacitance.
-Delay and power extracted via automated waveform measurement.
-Next: exploratory data analysis and Random Forest training.
+✅ Random Forest models trained: delay R²=0.965 (MAE 2.5ps), power R²=0.960 (MAE 0.0004mW). Feature importances confirm EDA findings — cload and width_n dominate delay; cload and vdd dominate power. Next: CLI prediction tool and demo.
 
 ## Overview
 (coming soon — problem statement, approach)

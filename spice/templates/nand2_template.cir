@@ -1,0 +1,23 @@
+* CMOS 2-Input NAND Gate (NAND2) using sky130 PDK
+
+.include "{model_path}"
+
+.temp {temp}
+
+Vsupply vdd 0 DC {vdd}
+{vin_a_line}
+{vin_b_line}
+
+XM1 out a vdd vdd sky130_fd_pr__pfet_01v8 W={width_p1} L=0.15
+XM2 out b vdd vdd sky130_fd_pr__pfet_01v8 W={width_p2} L=0.15
+XM3 out a mid 0 sky130_fd_pr__nfet_01v8 W={width_n1} L=0.15
+XM4 mid b 0 0 sky130_fd_pr__nfet_01v8 W={width_n2} L=0.15
+
+Cload out 0 {cload}f
+
+.tran 0.02n 20n
+.control
+run
+wrdata {output_file} v(a) v(b) v(out) i(vsupply)
+.endc
+.end
