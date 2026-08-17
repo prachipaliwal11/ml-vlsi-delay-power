@@ -15,7 +15,7 @@ XM4 mid b 0 0 sky130_fd_pr__nfet_01v8 W={width_n2} L=0.15
 
 Cload out 0 {cload}f
 
-.tran 0.02n 20n
+.tran 0.01n 20n
 .control
 run
 wrdata {output_file} v(a) v(b) v(out) i(vsupply)

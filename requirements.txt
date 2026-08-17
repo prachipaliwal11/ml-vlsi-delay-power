@@ -60,3 +60,4 @@ volare==0.20.6
 watchdog==6.0.0
 websockets==16.1.1
 zstandard==0.25.0
+plotly
