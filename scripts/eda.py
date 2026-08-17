@@ -1,8 +1,11 @@
+import os
 import pandas as pd
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import seaborn as sns
+
+os.makedirs("eda_plots", exist_ok=True)
 
 df = pd.read_csv("data/dataset.csv")
 
@@ -38,7 +41,7 @@ for ax, col in zip(axes.flat, COMMON_COLS):
     sns.histplot(data=df, x=col, hue="gate_type", bins=25, kde=True, ax=ax, element="step")
     ax.set_title(col)
 plt.tight_layout()
-plt.savefig("eda_distributions.png")
+plt.savefig("eda_plots/eda_distributions.png")
 print("\nSaved eda_distributions.png")
 
 # --- Correlation heatmap, one per gate_type ---
@@ -54,7 +57,7 @@ for ax, gate in zip(axes, gate_types):
     sns.heatmap(corr, annot=True, fmt=".2f", cmap="coolwarm", center=0, ax=ax, cbar=False)
     ax.set_title(f"Correlation: {gate}")
 plt.tight_layout()
-plt.savefig("eda_correlation.png")
+plt.savefig("eda_plots/eda_correlation.png")
 print("Saved eda_correlation.png")
 
 # --- Physical trend checks: delay/power vs each key shared parameter, colored by gate_type ---
@@ -66,7 +69,7 @@ for i, param in enumerate(params):
     sns.scatterplot(data=df, x=param, y="power_mW", hue="gate_type", ax=axes[1, i], alpha=0.5, s=15)
     axes[1, i].set_title(f"Power vs {param}")
 plt.tight_layout()
-plt.savefig("eda_trends.png")
+plt.savefig("eda_plots/trends.png")
 print("Saved eda_trends.png")
 
 # --- tpHL vs tpLH asymmetry per gate type (new, wasn't possible before
@@ -84,5 +87,5 @@ for ax, gate in zip(axes, gate_types):
     ax.set_title(f"{gate}: tpHL vs tpLH")
     ax.legend()
 plt.tight_layout()
-plt.savefig("eda_tphl_tplh.png")
+plt.savefig("eda_plots/eda_tphl_tplh.png")
 print("Saved eda_tphl_tplh.png")
