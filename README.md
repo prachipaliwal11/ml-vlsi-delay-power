@@ -185,9 +185,13 @@ Assumes `data/dataset.csv` and `models/*.pkl` are already present (they are, if 
 
 ## Methodology
 
+## Methodology
+
 Each gate's SPICE topology was derived and functionally validated (truth-table checks in simulation) before generating any data — including catching, mid-project, that a naive random `static_state` for NAND2 silently masked ~49% of samples (holding the non-switching input at the wrong logic level pins the output permanently, producing no measurable delay). NOR2's mirror-image rule was applied correctly from the start the second time around.
 
 500 samples per gate randomize Vdd (1.4–2.0V), temperature (-40 to 125°C), transistor widths, and load capacitance, simulated via `ngspice` against real sky130 `tt`-corner BSIM4 models. Since every switching input's `PULSE` waveform contains both a rising and falling edge within one transient run, both `tpHL` and `tpLH` are extracted from a single simulation — defined by the **output's** actual transition direction, not assumed from the input's direction (a distinction that matters for non-inverting configurations, like XOR2 with its static input held at 0). PDP is computed immediately alongside delay and power at this same extraction step and written into `data/dataset.csv` as its own column.
+
+See `docs/DEVELOPMENT_LOG.md` for the full technical log — every bug found and fixed, and the reasoning behind each design decision.
 
 ---
 
