@@ -170,7 +170,7 @@ python3 scripts/train_model.py
 ## Quick Start
 
 ```
-git clone <repo-url> && cd ml-vlsi-delay-power
+git clone https://github.com/prachipaliwal11/ml-vlsi-delay-power.git && cd ml-vlsi-delay-power
 python3 -m venv venv && source venv/bin/activate
 pip install -r requirements.txt
 
