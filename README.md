@@ -4,6 +4,8 @@
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-1.3-orange)
 ![Streamlit](https://img.shields.io/badge/Streamlit-app-FF4B4B)
 
+🔗 **[Live Demo](https://your-actual-url.streamlit.app)**
+
 > Predicting propagation delay (ps), power consumption (mW), and power-delay product (PDP) for CMOS logic gates — inverter, NAND2, NOR2, XOR2 — from voltage, temperature, transistor sizing, and load capacitance, using real sky130-PDK SPICE-characterized data and Random Forest.
 
 ---
